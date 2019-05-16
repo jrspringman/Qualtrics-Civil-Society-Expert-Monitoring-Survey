@@ -5,7 +5,7 @@ Qualtrics.SurveyEngine.addOnload(function()
  	jQuery("#"+this.questionId+"  .InputText").css("height", "100px");
 	//jQuery("#"+this.questionId+" td.ControlContainer").css("width", "10px");
 	
-	//
+	// Add default text to Input Text fields (used to show examples)
 	var qid = this.questionId;
 	var placeholder1 = "Example:  In July, several hundred people in [name of city or other location] attended a rally organized by civil society groups to advocate for changes to government environmental policies. ";
     var placeholder2 = "Example: In August, a newspaper called [name of newspaper] was shut-down by the government after being accused of failing to pay taxes.";
@@ -15,7 +15,7 @@ Qualtrics.SurveyEngine.addOnload(function()
 	jQuery("#" + qid + " .InputText")[2].setAttribute("placeholder",placeholder3);
 	
 	
-	// Hide all elements in specified range
+	// Hide all elements in specified range (3:20)
 	for (i = 3; i <  20; i++){
 	jQuery("#" + qid + " .InputText")[i].hide()
 	jQuery("#"+ qid +" td:not(.ControlContainer)")[i].hide();
