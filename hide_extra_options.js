@@ -8,8 +8,8 @@ Qualtrics.SurveyEngine.addOnload(function()
 	// Add default text to Input Text fields (used to show examples)
 	var qid = this.questionId;
 	var placeholder1 = "Example:  In July, several hundred people in [name of city or other location] attended a rally organized by civil society groups to advocate for changes to government environmental policies. ";
-    var placeholder2 = "Example: In August, a newspaper called [name of newspaper] was shut-down by the government after being accused of failing to pay taxes.";
-    var placeholder3 = "Example: The government has enacted a new law that makes it easier for NGOs and civil society groups to receive foreign funding.";
+	var placeholder2 = "Example: In August, a newspaper called [name of newspaper] was shut-down by the government after being accused of failing to pay taxes.";
+	var placeholder3 = "Example: The government has enacted a new law that makes it easier for NGOs and civil society groups to receive foreign funding.";
 	jQuery("#" + qid + " .InputText")[0].setAttribute("placeholder",placeholder1);
 	jQuery("#" + qid + " .InputText")[1].setAttribute("placeholder",placeholder2);
 	jQuery("#" + qid + " .InputText")[2].setAttribute("placeholder",placeholder3);
