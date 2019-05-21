@@ -19,7 +19,7 @@ Qualtrics.SurveyEngine.addOnload(function()
 	// Hide all elements in specified range (3:20)
 	for (i = 3; i <  20; i++){
 	jQuery("#" + qid + " .InputText")[i].hide()
-	jQuery("#"+ qid +" td:not(.ControlContainer)")[i].hide();
+	//jQuery("#"+ qid +" td:not(.ControlContainer)")[i].hide();
 	}
 	// Insert button after last .InputText
 	jQuery("<input type='button' id='add' value='More Events' name='+' />").insertAfter("#"+this.questionId+" .InputText:last");
@@ -28,6 +28,6 @@ Qualtrics.SurveyEngine.addOnload(function()
 	jQuery("#add").on("click", function(){
 		rowNum++;
 		jQuery("#"+ qid +" .InputText")[rowNum].show();
-		jQuery("#"+ qid +" td:not(.ControlContainer)")[rowNum].show();
+		//jQuery("#"+ qid +" td:not(.ControlContainer)")[rowNum].show();
     });
 });
