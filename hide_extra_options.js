@@ -15,7 +15,11 @@ Qualtrics.SurveyEngine.addOnload(function()
 	jQuery('#' + qid + ' .InputText')[1].setAttribute('placeholder',placeholder2);
 	jQuery('#' + qid + ' .InputText')[2].setAttribute('placeholder',placeholder3);
 	
-	
+	// Hide placeholder text on click
+	jQuery('input,textarea').focus(function(){
+		jQuery(this).removeAttr('placeholder');
+	});
+
 	// Hide all elements in specified range (3:20)
 	for (i = 3; i <  20; i++){
 	jQuery("#" + qid + " .InputText")[i].hide()
