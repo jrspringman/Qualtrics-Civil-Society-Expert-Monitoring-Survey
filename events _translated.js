@@ -52,13 +52,28 @@ Qualtrics.SurveyEngine.addOnload(function()
 	//jQuery("#"+ qid +" td:not(.ControlContainer)")[i].hide();
 	}
 	// Insert button after last .InputText
-	jQuery("<input type='button' id='add' value='More Events' name='+' />").insertAfter("#"+this.questionId+" .InputText:last");
-	// Add sequential click function
-	var rowNum = 2;
+    objLangSel.change(function() {
+        // if english language selected then display english image, else display the spanish image
+        if (objLangSel.val()=='EN'){
+        	jQuery("<input type='button' id='add' value='More Events' name='+' />").insertAfter("#"+qid+" .InputText:last");
+        		var rowNum = 2;
 	jQuery("#add").on('click', function(){
 		rowNum++;
 		jQuery("#"+ qid +" .InputText")[rowNum].show();
 		//jQuery("#"+ qid +" td:not(.ControlContainer)")[rowNum].show();
+    });
+
+        }
+        else {
+        	jQuery("<input type='button' id='add' value='Más Eventos' name='+' />").insertAfter("#"+qid+" .InputText:last");
+        		var rowNum = 2;
+	jQuery("#add").on('click', function(){
+		rowNum++;
+		jQuery("#"+ qid +" .InputText")[rowNum].show();
+		//jQuery("#"+ qid +" td:not(.ControlContainer)")[rowNum].show();
+    });
+
+        }
     });
 
 });
