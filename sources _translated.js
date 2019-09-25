@@ -17,6 +17,12 @@ Qualtrics.SurveyEngine.addOnload(function()
     var placeholder1s = 'Por favor describa la fuente 1 en la siguiente caja de texto. \nEjemplo: @[TWITTER HANDLE DE PERIODISTA]';
     var placeholder2s = 'Por favor describa la fuente 2 en la siguiente caja de texto. \nEjemplo: [NOMBRE DE BLOG DE NOTICIAS]';
     var placeholder3s = 'Por favor describa la fuente 3 en la siguiente caja de texto. \nExample: [NOMBRE DEL FORO]';
+	var placeholder1f = 'Veuillez enregistrer la source 1 dans cet espace. \nPar exemple: @[COMPTE DE TWITTER DU JOURNALISTE]';
+	var placeholder2f = 'Veuillez enregistrer la source 2 dans cet espace. \nPar exemple: [NOM DU BLOG DES NOUVELLES]';
+	var placeholder3f = 'Veuillez enregistrer la source 3 dans cet espace. \nPar exemple: [NOM DU FORUM]';
+	var placeholder1r = 'Пожалуйста, запишите источник 1 в квадрате. \nПример: @[твиттер журналиста]';
+	var placeholder2r = 'Пожалуйста, запишите источник 2 в квадрате. \nПример: [название новостного блога]';
+	var placeholder3r = 'Пожалуйста, запишите источник 3 в квадрате. \nПример: [название форума]';
 
 	// when the language selector changes
     objLangSel.change(function() {
@@ -26,10 +32,20 @@ Qualtrics.SurveyEngine.addOnload(function()
 			jQuery('#' + qid + ' .InputText')[1].setAttribute('placeholder',placeholder2);
 			jQuery('#' + qid + ' .InputText')[2].setAttribute('placeholder',placeholder3);
         }
-        else {
+        if (objLangSel.val()=='ES'){
             jQuery('#' + qid + ' .InputText')[0].setAttribute('placeholder',placeholder1s);
 			jQuery('#' + qid + ' .InputText')[1].setAttribute('placeholder',placeholder2s);
 			jQuery('#' + qid + ' .InputText')[2].setAttribute('placeholder',placeholder3s);
+        }
+        if (objLangSel.val()=='FR'){
+            jQuery('#' + qid + ' .InputText')[0].setAttribute('placeholder',placeholder1f);
+			jQuery('#' + qid + ' .InputText')[1].setAttribute('placeholder',placeholder2f);
+			jQuery('#' + qid + ' .InputText')[2].setAttribute('placeholder',placeholder3f);
+        }
+        if (objLangSel.val()=='RU'){
+            jQuery('#' + qid + ' .InputText')[0].setAttribute('placeholder',placeholder1r);
+			jQuery('#' + qid + ' .InputText')[1].setAttribute('placeholder',placeholder2r);
+			jQuery('#' + qid + ' .InputText')[2].setAttribute('placeholder',placeholder3r);
         }
 
 	// Hide placeholder text on mouseon; reveal on mouseoff
@@ -62,10 +78,28 @@ Qualtrics.SurveyEngine.addOnload(function()
 		jQuery("#"+ qid +" .InputText")[rowNum].show();
 		//jQuery("#"+ qid +" td:not(.ControlContainer)")[rowNum].show();
     });
+        }
+        if (objLangSel.val()=='ES') {
+        	jQuery("<input type='button' id='add' value='Más Fuentes' name='+' />").insertAfter("#"+qid+" .InputText:last");
+        		var rowNum = 2;
+	jQuery("#add").on('click', function(){
+		rowNum++;
+		jQuery("#"+ qid +" .InputText")[rowNum].show();
+		//jQuery("#"+ qid +" td:not(.ControlContainer)")[rowNum].show();
+    });
+        }
+        if (objLangSel.val()=='FR') {
+        	jQuery("<input type='button' id='add' value= 'Plus d`événements' name='+' />").insertAfter("#"+qid+" .InputText:last");
+        		var rowNum = 2;
+	jQuery("#add").on('click', function(){
+		rowNum++;
+		jQuery("#"+ qid +" .InputText")[rowNum].show();
+		//jQuery("#"+ qid +" td:not(.ControlContainer)")[rowNum].show();
+    });
 
         }
-        else {
-        	jQuery("<input type='button' id='add' value='Más Fuentes' name='+' />").insertAfter("#"+qid+" .InputText:last");
+        if (objLangSel.val()=='RU') {
+        	jQuery("<input type='button' id='add' value= 'Больше источников' name='+' />").insertAfter("#"+qid+" .InputText:last");
         		var rowNum = 2;
 	jQuery("#add").on('click', function(){
 		rowNum++;
@@ -75,7 +109,6 @@ Qualtrics.SurveyEngine.addOnload(function()
 
         }
     });
-
 });
 
 Qualtrics.SurveyEngine.addOnReady(function()
